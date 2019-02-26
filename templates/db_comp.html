@@ -1,0 +1,59 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<table class="table">
+		<thead>
+				<tr>
+				  <th scope="col"></th>
+				  <th scope="col"></th>
+				  <th scope="col"> </th>
+				  <th scope="col"></th>
+          <th scope="col"></th>
+       
+				  <th scope="col">
+            <a href="{{ url_for('create')}}"><button type="button" class="btn btn-success submit-btn">Create</button></a> </th> 
+				</tr>
+			  </thead>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Category </th>
+            <th scope="col">Latitude</th>
+            <th scope="col">Longitude</th>
+            <th scope="col">Delete </th>
+          </tr>
+        </thead>
+        
+          
+       
+
+
+{% for i in payandpark %}
+<tbody>
+    
+        <tr>
+          <th scope="row">{{loop.index}}</th>
+          <td>{{i["properties"]["name"]}}</td>
+          <td>{{i["properties"]["category"]}}</td>
+          <td>{{i["properties"]["latitude"]}}</td>
+          <td>{{i["properties"]["longitude"]}}</td>
+          <td><button type="button" class="btn btn-danger">Delete</button>
+          </td>
+        </tr>
+        
+      </tbody>
+<!--
+	<p> {{i["Username"]}}</p>
+	<p> {{i["Emailid"]}}</p>
+	<p> {{i["phone"]}}</p>
+	<br>
+-->
+
+
+{% endfor %}
+
+</table>
+
+{% endblock %}
