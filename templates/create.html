@@ -1,1 +1,50 @@
 {% extends "index.html" %}
+
+{% block content %}
+<div class="container maincontainer">
+        <h2>Location Details</h2>
+        <form action="{{ url_for('create') }}" id="modal" method="POST" role="form">
+           
+        <div class="form-group">
+              <label for="name">Name:</label> 
+        <input type="text" class="form-control" id="name" name="name"  placeholder="Name" aria-required="true">
+         
+        <label for="address1">Address1:</label>
+        <input type="text" class="form-control" id="address1" name="address1"  placeholder="Address 1" aria-required="true">
+
+        <label for="address2">Address2</label>
+        <input type="text" class="form-control" id="address2" name="address2"  placeholder="Address 2" aria-required="true">
+
+        <label for="city">City:</label>
+        <input type="text" class="form-control" id="city" name="city" placeholder="City" aria-required="true">
+
+        <label for="latitude">Latitude:</label>
+        <input type="number" step="0.0000001" class="form-control" id="latitude" name="latitude" placeholder="Latitude" aria-required="true">
+        
+        <label for="longitude">Longitude:</label>
+        <input type="number" step="0.0000001" class="form-control" id="longitude" name="longitude"  placeholder="Longitude" aria-required="true">
+         
+        <label for="capacity">Capacity:</label>
+        <input type="text" class="form-control" id="capacity" name="capacity" placeholder="Capacity" aria-required="true">
+
+        <label for="days">Days:</label>
+        <input type="text" class="form-control" id="days" name="days" placeholder="Days"aria-required="true" aria-required="true">
+
+        <label for="restrictions">Restrictions:</label>
+        <input type="text" class="form-control" id="restrictions" name="restrictions"  placeholder="Restrictions" aria-required="true">
+
+        <label for="category">Category:</label>
+        <input type="text" class="form-control" id="category" name="category" placeholder="Category"aria-required="true">
+
+        <label for="timing">Timing:</label>
+        <input type="text" class="form-control" id="timing" name="timing" placeholder="Timing"aria-required="true">
+
+        <label for="chargesperhour">Charges Per Hour:</label>
+        <input type="text" class="form-control" id="chargesperhour" name="chargesperhour" placeholder="Enter charges/hour" aria-required="true">
+         
+        </div>
+        <button type="submit" name="submit" value=1 class="btn btn-success" aria-required="true">ADD</button>
+      
+        </form>
+</div>
+{% endblock content %}

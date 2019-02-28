@@ -9,6 +9,7 @@
 
 {% block content %}
 <br> <br> <br>
+<form action="{{ url_for('db_user')}}" method="POST">
 <table class="table">
         <thead>
           <tr>
@@ -33,7 +34,7 @@
           <td>{{i["properties"]["category"]}}</td>
           <td>{{i["properties"]["latitude"]}}</td>
           <td>{{i["properties"]["longitude"]}}</td>
-          <td><button type="button" class="btn btn-danger">Delete</button>
+          <td><button type="submit" name ="loop" value="{{i['_id']['$oid']}}" class="btn btn-danger">Delete</button>
           </td>
         </tr>
       </tbody>
@@ -48,5 +49,5 @@
 {% endfor %}
 
 </table>
-
+</form>
 {% endblock %}

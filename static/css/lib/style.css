@@ -365,3 +365,15 @@ a[href*="#followme"]::before {
     background-color: rgba(250,250,250,.8);
     z-index: 1;
 }
+
+.maincontainer{
+  width: 40%;
+  border: 1px solid grey;
+  padding: 45px;
+  margin-top: 30px;
+}
+
+.btn-success{
+  position: relative;
+  left:85%
+}
