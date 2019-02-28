@@ -3,6 +3,8 @@ from functools import wraps
 import json
 import models
 import forms 
+import os
+
 
 
 # def login_required(f):
@@ -16,6 +18,7 @@ import forms
 
 print(models.session)
 app = Flask(__name__)
+
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 
@@ -38,7 +41,7 @@ def logout():
 def submit():
 	email=request.form.get('email')
 	password=request.form.get('password')
-	if email=='admin@parkinglot.com' and password=="admin123" and request.method=='POST':
+	if email=='admin@mahindra.com' and password=="admin123" and request.method=='POST':
 		models.session=True
 		return redirect(url_for('adminpanel'))
 	else:
