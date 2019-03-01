@@ -38,7 +38,7 @@ def logout():
 
 
 @app.route("/",methods=['GET','POST'])
-def submit():
+def submit(): 
 	email=request.form.get('email')
 	password=request.form.get('password')
 	if email=='admin@mahindra.com' and password=="admin123" and request.method=='POST':
@@ -97,7 +97,7 @@ def create():
 		address1 = request.form.get('address1')
 		address2 = request.form.get('address2')
 		city =  request.form.get('city')
-		latitude =  request.form.get('latitude')
+		latitude =  request.form.get('latitude') 
 		longitude =  request.form.get('longitude')
 		capacity =  request.form.get('capacity')
 		days =  request.form.get('days')
@@ -106,7 +106,8 @@ def create():
 		timing = request.form.get('timing')
 		chargesperhour =  request.form.get('chargesperhour')
 		print(name,address1,address2,city,latitude,longitude,capacity,days,restrictions,category,timing,chargesperhour)
-		if request.form.get('submit') == 1:
+		if request.form.get('submit') == '1':
+			print(name,address1,address2,city,latitude,longitude,capacity,days,restrictions,category,timing,chargesperhour)
 			data =  models.CreateLot(name,address1,address2,city,latitude,longitude,capacity,days,restrictions,category,timing,chargesperhour)
 			data.insert()
 		# x = {
@@ -121,6 +122,13 @@ def db_comp():
 	else:
 		z = models.PayandParking()
 		payandpark = z.getPay()
+		if request.method == 'POST':
+			value = request.form.get('del')  #change karna hai
+			print("del obj"+value)
+			remove = models.Deletion(value)
+			remove.dele()
+		# return render_template("db_user.html",fromuser=fromuser)
+
 		return render_template("db_comp.html",payandpark = payandpark)
 
 @app.route("/home")
@@ -159,3 +167,6 @@ def about():
 @app.route("/maps")
 def maps():
 	return render_template("maps.html")
+
+if __name__ == "__main__":
+	app.run()

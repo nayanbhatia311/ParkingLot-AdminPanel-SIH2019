@@ -23,12 +23,15 @@ class UserModel():
 
 class PayandParking():
     def getPay(self):
-        a=db.PayandParking.find({},{"_id":0})
-        print(a) 
+        a=db.PayandParking.find({})
         ab=[]
         for i in a:
             ab.append(i)
-        return ab
+            x = bsj.dumps(ab)
+      
+        qa = json.loads(x)
+        
+        return qa
 
 class FromUser():
     def fromuser(self):
@@ -114,16 +117,19 @@ class CreateLot():
                     "geometry": {
                         "type": "Point",
                         "coordinates": [
-                            self.longitude,
-                            self.latitude
+                            float(self.longitude),
+                            float(self.latitude)
+                            
                         ]
                     }})
             print(t)
-            return jsonify(t)
+            
 class Deletion():
     def __init__(self,Obj):
         self.Obj = Obj
     def dele(self):
         y = ObjectId(self.Obj)
-        db.fromUser.remove({"_id":y})
+        res1 = db.fromUser.remove({"_id":y})
+        res2 = db.PayandParking.remove({"_id":y})
+        print(res1 +"-res1 res2-"+ res2)
 

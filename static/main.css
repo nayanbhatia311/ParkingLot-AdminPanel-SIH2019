@@ -9,7 +9,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bg-steel {
-  background-color: #5f788a;
+  background-color:#3a3535;
 }
 
 .site-header .navbar-nav .nav-link {
@@ -82,5 +82,12 @@ a.article-title:hover {
 .errm{
   color:red;
 }
+.edit1{
+  color: red !important;
+  float:left !important;
+}
 
+.move{
+  padding-right: 9px;
+}
 
