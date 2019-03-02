@@ -1,9 +1,7 @@
-from flask import Flask,render_template,url_for, request,redirect,flash,g
-from functools import wraps
+from flask import Flask,render_template,url_for, request,redirect,flash
+
 import json
-import models
-import forms 
-import os
+import models 
 
 
 
@@ -115,7 +113,7 @@ def create():
 		# }
 		return render_template("create.html")
 
-@app.route("/db_comp")
+@app.route("/db_comp",methods=['POST','GET'])
 def db_comp():
 	if not models.session:
 		return redirect (url_for('home'))
@@ -123,10 +121,10 @@ def db_comp():
 		z = models.PayandParking()
 		payandpark = z.getPay()
 		if request.method == 'POST':
-			value = request.form.get('del')  #change karna hai
+			value = request.form.get('del')
 			print("del obj"+value)
-			remove = models.Deletion(value)
-			remove.dele()
+			remove = models.Deletionfrompay(value)
+			response = remove.dele()
 		# return render_template("db_user.html",fromuser=fromuser)
 
 		return render_template("db_comp.html",payandpark = payandpark)
@@ -164,9 +162,5 @@ def about():
 	else:
 		return render_template("about.html")
 
-@app.route("/maps")
-def maps():
-	return render_template("maps.html")
-
-if __name__ == "__main__":
-	app.run()
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=80)

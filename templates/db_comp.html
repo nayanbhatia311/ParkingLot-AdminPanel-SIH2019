@@ -2,14 +2,20 @@
 
 {% block content %}
 
+
+<form method="POST" action="{{ url_for('db_comp')}}">
 <table class="table">
+  
   <br>
   <br>
+  <caption class="header" id="data"><h2>COMPANY DATASETS</h2></caption>
   
   <thead>
 				<tr>
 				  <th scope="col"></th>
 				  <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
           <th scope="col"></th>
           <th scope="col"></th>
           <th scope="col"></th>
@@ -25,6 +31,8 @@
             <th scope="col">Category </th>
             <th scope="col">Latitude</th>
             <th scope="col">Longitude</th>
+            <th scope="col">Likes</th>
+            <th scope="col">Dislikes</th>
             <th scope="col">Delete </th>
           </tr>
         </thead>
@@ -42,7 +50,9 @@
           <td>{{i["properties"]["category"]}}</td>
           <td>{{i["properties"]["latitude"]}}</td>
           <td>{{i["properties"]["longitude"]}}</td>
-          <td><button type="button" class="btn btn-danger" name="del"  value= "{{i['_id']}}" >Delete</button>
+          <td>{{i["properties"]["likes"]}}</td>
+          <td>{{i["properties"]["dislikes"]}}</td>
+          <td><button type="submit" class="btn btn-danger" name="del"  value= "{{i['_id']['$oid']}}" >Delete</button>
           </td>
         </tr>
         
@@ -58,5 +68,12 @@
 {% endfor %}
 
 </table>
+</form>
+<!-- 
+<script>
+    setTimeout(db(){
+        window.location.href = "{{url_for('db_comp')}}";
+    }, 2000);
+</script> -->
 
 {% endblock %}

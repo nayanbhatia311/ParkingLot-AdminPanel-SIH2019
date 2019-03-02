@@ -1,7 +1,7 @@
 body {
     position: relative;
     overflow-x: hidden;
-    background-color: #CFD8DC;
+    background-color: rgb(251, 255, 255) !important;
 }
 body,
 html { height: 100%;}
@@ -362,9 +362,37 @@ a[href*="#followme"]::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(250,250,250,.8);
+    background-color: rgba(68, 64, 64, 0.8);
     z-index: 1;
 }
 .form-group{
   width:50%;
+}
+.welcome{
+  color:rgb(250, 241, 241);
+}
+#data{
+  color:rgb(89, 99, 110);
+
+}
+.header{
+  caption-side: top !important;
+  text-align: center;
+}
+#data1{
+  color:rgb(13, 13, 14);
+}
+.text-primary{
+  text-align: center;
+}
+.abt{
+  text-align: justify;
+  
+}
+.table{
+  border:2px;
+}
+.abt1{
+  color:rgb(45, 45, 49);
+  text-align:center;
 }

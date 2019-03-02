@@ -11,6 +11,8 @@
 <br> <br> <br>
 <form action="{{ url_for('db_user')}}" method="POST">
 <table class="table">
+  
+    <caption class="header" id="data"><h2>USER DATASETS</h2></caption>
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -18,6 +20,8 @@
             <th scope="col">Category </th>
             <th scope="col">Latitude</th>
             <th scope="col">Longitude</th>
+            <th scope="col">Likes</th>
+            <th scope="col">Dislikes</th>
             <th scope="col">Delete </th>
           </tr>
         </thead>
@@ -34,6 +38,8 @@
           <td>{{i["properties"]["category"]}}</td>
           <td>{{i["properties"]["latitude"]}}</td>
           <td>{{i["properties"]["longitude"]}}</td>
+          <td>{{i["properties"]["likes"]}}</td>
+          <td>{{i["properties"]["dislikes"]}}</td>
           <td><button type="submit" name ="loop" value="{{i['_id']['$oid']}}" class="btn btn-danger">Delete</button>
           </td>
         </tr>

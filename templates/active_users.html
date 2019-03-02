@@ -2,8 +2,10 @@
 
 {% block content %}
 <br> <br> <br>
+
 <table class="table">
-        <thead>
+  <caption id="data" class="header"><h2>ACTIVE USER'S</h2></caption>
+        <thead id="data1">
           <tr>
             <th scope="col">#</th>
             <th scope="col">Username</th>
@@ -17,7 +19,7 @@
 
 
 {% for i in usermodel %}
-<tbody>
+<tbody id="data1">
         <tr>
           <th scope="row">{{loop.index}}</th>
           <td>{{i["Username"]}}</td>

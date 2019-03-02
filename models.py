@@ -27,7 +27,7 @@ class PayandParking():
         ab=[]
         for i in a:
             ab.append(i)
-            x = bsj.dumps(ab)
+        x = bsj.dumps(ab)
       
         qa = json.loads(x)
         
@@ -87,7 +87,7 @@ class CreateLot():
             discription = disstring.format(self.name , self.address1 , self.address2 , self.city , self.latitude , self.longitude , self.capacity , self.days , self.restrictions , self.category , self.timing , self.chargesperhour)
             addstring = "{},{}"
             address = addstring.format(self.address1,self.address2)
-            t = db.fromUser.insert({
+            t = db.PayandParking.insert({
                     "type": "Feature",
                     "properties": {
                     "name": self.name,
@@ -129,7 +129,15 @@ class Deletion():
         self.Obj = Obj
     def dele(self):
         y = ObjectId(self.Obj)
-        res1 = db.fromUser.remove({"_id":y})
-        res2 = db.PayandParking.remove({"_id":y})
-        print(res1 +"-res1 res2-"+ res2)
+        db.fromUser.remove({"_id":y})
+       # db.PayandParking.remove({"_id":y})
+        # print(res1 +"-res1 res2-"+ res2)
 
+class Deletionfrompay():
+    def __init__(self,Obj):
+        self.Obj = Obj
+    def dele(self):
+        y = ObjectId(self.Obj)
+        mongoresponse = db.PayandParking.remove({"_id":y})
+        return mongoresponse
+        
