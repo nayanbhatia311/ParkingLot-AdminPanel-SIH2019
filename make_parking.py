@@ -135,7 +135,7 @@ def adminpanel():
 	if not models.session:
 		return redirect (url_for('home'))
 	else:
-		return render_template("index.html") 
+		return render_template("index.html") #googlemaps.html(index.html)
 
 @app.route("/active_users")
 def active_users():
@@ -162,5 +162,4 @@ def about():
 	else:
 		return render_template("about.html")
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80)
+

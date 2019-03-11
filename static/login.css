@@ -5,6 +5,7 @@
 }
 .login-form-1{
     padding: 5%;
+    margin-left: 50%;
     background-color: #333333;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
     
@@ -30,4 +31,7 @@
     font-weight: 600;
     color: #fff;
     background-color: red;
+}
+.cent{
+    margin-left: 50% !important;
 }
